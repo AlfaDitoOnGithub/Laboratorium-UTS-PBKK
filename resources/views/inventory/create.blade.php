@@ -15,6 +15,7 @@
              $table->string("fotoBarang");  -->
 
             <label>Jenis Barang</label> <br>
+            <input type="dropdown" name="jenisBarang" id="jenisBarang" class="form-control">
             <label>Kondisi Barang</label> <br>
             <label>Keterangan</label> <br>
             <label>Jumlah Barang</label> <br>
