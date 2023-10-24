@@ -3,10 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Inventory>
  */
 class InventoryFactory extends Factory
 {
@@ -17,22 +16,24 @@ class InventoryFactory extends Factory
      */
     public function definition(): array
     {
+        $barang=array('Mikroskop', 'Meja', 'Kursi');
+        $kondisi=array('Bagus', 'Sedikit Rusak', 'Sangat Rusak');
         return [
-            '' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
-        ];
-    }
+              // $table->id();
+    //         $table->timestamps();
+    //         $table->string("jenisBarang");
+    //         $table->string("kondisiBarang");
+    //         $table->string("keteranganBarang");
+    //         $table->integer("jumlahBarang");
+    //         $table->string("fotoBarang"); 
+            
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
+            "jenisBarang" => array_rand($barang,1),
+            "kondisiBarang" => array_rand($kondisi,1),
+            "keteranganBarang" => fake()->realText(),
+            "jumlahBarang" => random_int(1,100),
+            "fotoBarang" => fake()->image(0,0),
+
+        ];
     }
 }
